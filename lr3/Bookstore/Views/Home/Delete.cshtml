@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Bookstore.Models.Book
+<h2>Удаление книги</h2>
+<dl>
+    <dt>Название</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>Автор</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Author)
+    </dd>
+
+    <dt>Издатель</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Publisher)
+    </dd>
+
+    <dt>Цена</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}

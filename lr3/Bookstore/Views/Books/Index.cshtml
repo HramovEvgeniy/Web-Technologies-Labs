@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Bookstore.Models.Book>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Управление книгами</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Добавить новую", "Create")
+    </p>
+    <h5>Названия атрибутов, взятые из модели</h5>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publisher)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Дополнительная информация", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+        @Html.ActionLink("Заказы", "Orders")
+    </table>
+    <p><a href="/Home/">Главная</a></p>
+</body>
+</html>
